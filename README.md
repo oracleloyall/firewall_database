@@ -5,25 +5,8 @@
 3：支持sql的词法分析获取更多详细的信息，以便实现其他更高的安全策略。
 4：sql语句预警功能，支持sql频次的记录
 支持c接口版本和c++版本。
-输入的sql：
-check1("select * from student");
-check("SELECT * FROM products WHERE id=1 AND 1>(SELECT count(*) FROM information_schema.columns A, information_schema.columns B, information_schema.columns C)");
-check("SELECT * FROM products WHERE categoryid=1; UPDATE members SET password='pwd' WHERE username='admin'");
-check("SELECT * FROM products WHERE id=1 AND 1=2 OR sleep(0.1)");
-check("SELECT * FROM products WHERE id=1 AND 1=1");
-check("INSERT INTO members (username, isadmin, password) VALUES ('attacker', 1, /*', 0, '*/'pwd')");
-check("SELECT id, username, first_name, last_name, email FROM members WHERE username='invalid-username' UNION SELECT 1, username, passwords FROM members WHERE 'x'='x'");
-check("SELECT name, description, price FROM products WHERE category=1 UNION SELECT 'A', 'B', 3 FROM all_tables");
-check("SELECT name, email FROM members WHERE id=1; IF SYSTEM_USER='sa' SELECT 1/0 ELSE SELECT 5");
-check("SELECT name from student where id=100 and age>20");
-check("SELECT name from student where depto>20 or pto>30");
-check("SELECT * from admin");
-check("Delete From myTable where '1'='1'");
-check("select * from student;sleep(10)");
-check(" SELECT ELT(1, 'ej', 'Heja', 'hej', 'foo')");
-check("drop user admin");
 
-输出：
+部分测试案例输出：
 SQL：select * from student
 True expression detected (SQL tautology)
 sql safe
