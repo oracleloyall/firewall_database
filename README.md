@@ -56,6 +56,7 @@ Multiple queries found
 
  SQL：SELECT ELT(1, 'ej', 'Heja', 'hej', 'foo')
 Query has SQL fuction that can be used to bruteforce db contents
+
 性能：单核100000次注入判定，100000次固定正则判定，平均耗时1.5s以内
 
 如果感兴趣可以联系873988212@qq.com
