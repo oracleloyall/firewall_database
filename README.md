@@ -18,26 +18,21 @@ True expression detected (SQL tautology)
 sql safe
 
 SQL：SELECT * FROM products WHERE id=1 AND 1>(SELECT count(*) FROM information_schema.columns A, information_schema.columns B, information_schema.columns C)
-
 True expression detected (SQL tautology)
 
 SQL：SELECT * FROM products WHERE categoryid=1; UPDATE members SET password='pwd' WHERE username='admin'
-
 Multiple queries found
 
 SQL：SELECT * FROM products WHERE id=1 AND 1=2 OR sleep(0.1)
 Query has 'or' token
 
 True expression detected (SQL tautology)
-
 SQL：SELECT * FROM products WHERE id=1 AND 1=1
 
 True expression detected (SQL tautology)
-
 INSERT INTO members (username, isadmin, password) VALUES ('attacker', 1, /*', 0, '*/'pwd')
 
 Query uses sensitive tables
-
 SQL：SELECT id, username, first_name, last_name, email FROM members WHERE username='invalid-username' UNION SELECT 1, username, passwords FROM members WHERE 'x'='x'
 
 Query uses sensitive tables
@@ -45,28 +40,22 @@ SQL：Query has 'union' token
 True expression detected (SQL tautology)
 
 SELECT name, description, price FROM products WHERE category=1 UNION SELECT 'A', 'B', 3 FROM all_tables
-
 Query has 'union' token
 
 SQL：SELECT name, email FROM members WHERE id=1; IF SYSTEM_USER='sa' SELECT 1/0 ELSE SELECT 5
-
 Query uses sensitive tables
 Multiple queries found
 
 SQL：SELECT name from student where id=100 and age>20
-
 sql safe
 
 SELECT name from student where depto>20 or pto>30
-
 Query has 'or' token
 
 SQL：SELECT * from admin
-
 Query uses sensitive tables
 
 SQL：Delete From myTable where '1'='1'
-
 True expression detected (SQL tautology)
 
 SQL：select * from student;sleep(10)
@@ -74,7 +63,6 @@ SQL：select * from student;sleep(10)
 Multiple queries found
 
 SQL：SELECT ELT(1, 'ej', 'Heja', 'hej', 'foo')
- 
 Query has SQL fuction that can be used to bruteforce db contents
 
 性能：单核100000次注入判定，100000次固定正则判定，平均耗时1.5s以内
