@@ -12,6 +12,7 @@
 支持c接口版本和c++版本。
 
 部分测试案例输出：
+
 SQL：select * from student
 True expression detected (SQL tautology)
 sql safe
